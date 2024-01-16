@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="96x96" href="Photos/KP%20Company%20Logo.png">
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+	<nav>
+		<ul class="menu">
+		  <li class="logo"><a href="#">Kevin</a></li>
+		  <li class="item"><a href="index.php">Home</a></li>
+		  <li class="item"><a href="About_me.php">About Me</a></li>
+		  <li class="item"><a href="Contact_me.php">Contact Me</a></li>
+		  <li class="item"><a href="MyWork.php">My Work/Future</a></li>
+			<li class="item"><a href="My_Store.php">My Store</a></li>
+		  </li>
+		  <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+		</ul>
+	  </nav>
+<div class="container">
+	<div class="page-header"><h1>Welcome!</h1></div>
+	<p> Hello my name Kevin Parra Welcome to my homepage, Here you will learn a little bit about me what my interests are, where I come from, and where I want to be in the future. </p>
+    <p>Thank you for taking the time to be here and explore my small website, Although I have done work like this in the past I would like to try to implement new things on this one. again thank you for taking the time.  </p>
+<p> Hope you Enjoy!</p>
+<br>
+<button type="button" class="btn btn-primary"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+</div>
+<style>
+	.footer{
+		position: fixed;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.849);
+		color:white
+	}
+	</style>
+<footer class="footer">
+	<div class="container">
+		<p class="text-muted"><p>Copyright &copy; 2021</p>
+	</div>
+	<script>
+		const toggle = document.querySelector(".toggle");
+  const menu = document.querySelector(".menu");
+  const items = document.querySelectorAll(".item");
+  
+  function toggleMenu() {
+	if (menu.classList.contains("active")) {
+	  menu.classList.remove("active");
+	  toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+	} else {
+	  menu.classList.add("active");
+	  toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+	}
+  }
+  
+  function toggleItem() {
+	if (this.classList.contains("submenu-active")) {
+	  this.classList.remove("submenu-active");
+	} else if (menu.querySelector(".submenu-active")) {
+	  menu.querySelector(".submenu-active").classList.remove("submenu-active");
+	  this.classList.add("submenu-active");
+	} else {
+	  this.classList.add("submenu-active");
+	}
+  }
+  
+  function closeSubmenu(e) {
+	let isClickInside = menu.contains(e.target);
+  
+	if (!isClickInside && menu.querySelector(".submenu-active")) {
+	  menu.querySelector(".submenu-active").classList.remove("submenu-active");
+	}
+  }
+  
+  toggle.addEventListener("click", toggleMenu, false);
+  for (let item of items) {
+	if (item.querySelector(".submenu")) {
+	  item.addEventListener("click", toggleItem, false);
+	}
+	item.addEventListener("keypress", toggleItem, false);
+  }
+  document.addEventListener("click", closeSubmenu, false);
+	</script>
+<div class="container">
+</footer>
+</body>
+</html>
